@@ -3,22 +3,22 @@ body {
 	width: 70%;
 }
 
-ul.posts {
+ul {
 	margin: 20px auto 40px;
 	font-size: 1.5em;
 }
 
-ul.posts li {
+ul li {
 	list-style: none;
 }
 
-nav ul, footer ul {
+nav ol, footer ol {
 	padding: 0px;
 	list-style: none;
 	font-weight: bold;
 }
 
-nav ul li, footer ul li {
+nav ol li, footer ol li {
 	display: inline;
 	margin-right: 15px;
 }
@@ -46,9 +46,5 @@ p {
 footer {
 	border-top: 2px solid #d5d5d5;
 	font-size: .8em;
-}
-
-ol {
-	list-style-type: none;
 }
 

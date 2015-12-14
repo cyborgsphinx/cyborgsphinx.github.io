@@ -6,11 +6,11 @@
 	</head>
 	<body>
 		<nav>
-			<ul>
+			<ol>
 				<li><a href="/">Home</a></li>
 				<li><a href="/about">About</a></li>
 				<li><a href="/blog">Stories and Musings</a></li>
 				<!-- Add sections here as directories are created -->
-			</ul>
+			</ol>
 		</nav>
 
