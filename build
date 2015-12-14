@@ -2,7 +2,13 @@
 
 MKDWN=$1.md
 OUT=$1.html
+TMP=tmp.html
 
-cat template.head > $OUT
-markdown $MKDWN >> $OUT
-cat template.tail >> $OUT
+cat template.head > $TMP
+markdown $MKDWN >> $TMP
+cat template.tail >> $TMP
+
+#assuming js-beautify/html-beautify exists
+html-beautify -tn $TMP > $OUT
+
+rm $TMP
