@@ -11,12 +11,12 @@ nav ul, footer ul {
 
 nav ul li, footer ul li {
 	display: inline;
-	margin-right: 20px;
+	margin-right: 15px;
 }
 
 a {
 	text-decoration: none;
-	color: #999;
+	color: #77a;
 }
 
 a:hover {
@@ -30,6 +30,7 @@ h1 {
 p {
 	font-size: 1.5em;
 	line-height: 1.4em;
+	text-align: justify;
 	color: #333;
 }
 
