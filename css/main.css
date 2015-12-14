@@ -3,6 +3,15 @@ body {
 	width: 70%;
 }
 
+ul {
+	margin: 20px auto 40px;
+	font-size: 1.5em;
+}
+
+ul li {
+	list-style: none;
+}
+
 nav ul, footer ul {
 	padding: 0px;
 	list-style: none;
@@ -39,11 +48,3 @@ footer {
 	font-size: .8em;
 }
 
-ul {
-	margin: 20px auto 40px;
-	font-size: 1.5em;
-}
-
-ul li {
-	list-style: none;
-}
