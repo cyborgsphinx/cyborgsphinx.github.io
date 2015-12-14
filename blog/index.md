@@ -5,6 +5,4 @@ As you may be able to guess, this is where I will be linking all the
 blog posts I will theoretically be making when I have figured out the 
 rest of all this.
 
-<ul class="posts">
-<li><a href="os-fun">OS Fun</a></li>
-</ul>
+1. [OS Fun](os-fun.html)
