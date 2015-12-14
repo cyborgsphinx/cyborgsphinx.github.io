@@ -30,7 +30,7 @@ h1 {
 p {
 	font-size: 1.5em;
 	line-height: 1.4em;
-	text-align: justify;
+	text-align: left; /* justify looks a little too weird on a screen*/
 	color: #333;
 }
 
