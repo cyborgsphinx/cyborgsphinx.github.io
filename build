@@ -1,0 +1,8 @@
+#!/bin/sh
+
+MKDWN=$1.md
+OUT=$1.html
+
+cat template.head > $OUT
+markdown $MKDWN >> $OUT
+cat template.tail >> $OUT

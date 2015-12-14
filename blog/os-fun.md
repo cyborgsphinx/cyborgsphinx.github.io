@@ -1,6 +1,8 @@
-#OS Fun
+OS Fun
+======
 
-##*13 Sept. 2015*
+*13 Sept. 2015*
+---------------
 
 So I was bored this weekend. I spent all Friday night being awake and rowdy for
 the all nighter we typically do during frosh week, so Saturday was a wash.
