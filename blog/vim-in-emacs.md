@@ -6,8 +6,8 @@ Vim in Emacs
 
 I have come to the conclusion over the passed little while that all while I love
 Vim, and NeoVim in particular, I'm not going to be using either as a GUI application
-any time soon. But other naVigation schemes feel really weird to me. I can't really
-justify moVing my hand to the arrow keys just to tap the same one a whole lot in
+any time soon. But other navigation schemes feel really weird to me. I can't really
+justify moving my hand to the arrow keys just to tap the same one a whole lot in
 order to go in one particular direction. Both parts of that are very frustrating
 to me when I could instead keep my hands where they are, punch in a few numbers,
 and hit a direction to go that far that way.
@@ -33,7 +33,7 @@ it a go.
 It turns out to not be too hard to make Emacs usable by a Vimmer. Just using the Evil
 plugin, called a package in Emacs, does a lot of work to make the environment pretty
 much equivalent to Vim. Interestingly, it lacks support for the leader key, which is
-a boon for anyone who wants custom keystrokes wihtout haVing to scour through the keys
+a boon for anyone who wants custom keystrokes wihtout having to scour through the keys
 of Vim and figure out what isn't being used by default.
 
 But this wasn't too bad, installing Windows 10 after years of not using anything not
@@ -59,7 +59,7 @@ complain too much.
 
 So my first day using Emacs has been fairly okay, once I got used to the new environment
 and how it wants to work. This is going to take a fair amount of time to get comfortable,
-I'm sure, but it's serViceable and it feels overall right. If anything else deserves
+I'm sure, but it's serviceable and it feels overall right. If anything else deserves
 talking about, it'll find its way in here.
 
 One final note, buffers. Emacs loves buffers. Seems to want at least two at any time,
