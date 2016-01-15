@@ -1,14 +1,23 @@
 #!/bin/sh
 
-MKDWN=$1.md
-OUT=$1.html
 TMP=tmp.html
 
-cat template.head > $TMP
-markdown $MKDWN >> $TMP
-cat template.tail >> $TMP
+function build {
+    OUT=`echo $1 | sed -e 's/.md/.html/'`
+    cat template.head > $TMP
+    markdown $1 >> $TMP
+    cat template.tail >> $TMP
+    #assuming js-beautify/html-beautify exists
+    html-beautify -n $TMP > $OUT
+}
 
-#assuming js-beautify/html-beautify exists
-html-beautify -tn $TMP > $OUT
+for file in `find . -name '*.md' -and ! -name 'README.md'`
+do
+    echo "building $file"
+    build $file
+done
 
-rm $TMP
+if [ -e $TMP ]
+then
+    rm $TMP
+fi
