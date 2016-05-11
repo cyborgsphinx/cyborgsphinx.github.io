@@ -1,49 +1,95 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<title>The lair of the Cyborgsphinx</title>
+		<link rel="stylesheet" type="test/css" href="../css/main.css">
+	</head>
+	<body>
+		<nav>
+			<ol>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+				<li><a href="/blog">Stories and Musings</a></li>
+				<!-- Add sections here as directories are created -->
+			</ol>
+		</nav>
 
-<head>
-    <title>The lair of the Cyborgsphinx</title>
-    <link rel="stylesheet" type="test/css" href="/css/main.css">
-</head>
+<h1>Vim in Emacs</h1>
 
-<body>
-    <nav>
-        <ol>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/blog">Stories and Musings</a></li>
-            <!-- Add sections here as directories are created -->
-        </ol>
-    </nav>
+<h2><em>12 Jan. 2016</em></h2>
 
-    <h1>Vim in Emacs</h1>
+<p>I have come to the conclusion over the passed little while that all while I love
+Vim, and NeoVim in particular, I'm not going to be using either as a GUI application
+any time soon. But other navigation schemes feel really weird to me. I can't really
+justify moving my hand to the arrow keys just to tap the same one a whole lot in
+order to go in one particular direction. Both parts of that are very frustrating
+to me when I could instead keep my hands where they are, punch in a few numbers,
+and hit a direction to go that far that way.</p>
 
-    <h2><em>12 Jan. 2016</em></h2>
+<p>Despite my love of doing this, I can't easily find a graphical editor which will
+support Vim-style navigation and commands. Each particular implementation has its
+own ups and downs, but none of them really seemed to come close to emulating the
+experience given to me by using a straight Vi clone. I was using Atom for a while,
+and it felt the least bad of the ones I've used, but it still was off. Vi commands
+weren't supported (things starting with ':'), meaning all saves had to take me out
+of Vi mode and enter Atom, or rather Mac, mode. But it was the best option around.</p>
 
-    <p>I have come to the conclusion over the passed little while that all while I love Vim, and NeoVim in particular, I'm not going to be using either as a GUI application any time soon. But other navigation schemes feel really weird to me. I can't really justify moving my hand to the arrow keys just to tap the same one a whole lot in order to go in one particular direction. Both parts of that are very frustrating to me when I could instead keep my hands where they are, punch in a few numbers, and hit a direction to go that far that way.</p>
+<p>Until I remembered that there is an editor that has a large number of Vi emulation
+layers, and these have been built with the expressed purpose of drawing Vimmers
+away - yes, our old friend, Emacs comes to the rescue. Emacs has an actual GUI that
+is just as official as its text mode, and it has a plugin called Evil that makes it
+behave almost exactly like a Vi clone. Which is good. This is exactly what I wanted.
+But the one problem, keeping me away for a rather long time, was that it's Emacs.
+It's new. It's different. It's scary. But it turns out to not be as scary as anything
+else I've been using when I want something outside the terminal, so I decided to give
+it a go.</p>
 
-    <p>Despite my love of doing this, I can't easily find a graphical editor which will support Vim-style navigation and commands. Each particular implementation has its own ups and downs, but none of them really seemed to come close to emulating the experience given to me by using a straight Vi clone. I was using Atom for a while, and it felt the least bad of the ones I've used, but it still was off. Vi commands weren't supported (things starting with ':'), meaning all saves had to take me out of Vi mode and enter Atom, or rather Mac, mode. But it was the best option around.</p>
+<p>It turns out to not be too hard to make Emacs usable by a Vimmer. Just using the Evil
+plugin, called a package in Emacs, does a lot of work to make the environment pretty
+much equivalent to Vim. Interestingly, it lacks support for the leader key, which is
+a boon for anyone who wants custom keystrokes wihtout having to scour through the keys
+of Vim and figure out what isn't being used by default.</p>
 
-    <p>Until I remembered that there is an editor that has a large number of Vi emulation layers, and these have been built with the expressed purpose of drawing Vimmers away - yes, our old friend, Emacs comes to the rescue. Emacs has an actual GUI that is just as official as its text mode, and it has a plugin called Evil that makes it behave almost exactly like a Vi clone. Which is good. This is exactly what I wanted. But the one problem, keeping me away for a rather long time, was that it's Emacs. It's new. It's different. It's scary. But it turns out to not be as scary as anything else I've been using when I want something outside the terminal, so I decided to give it a go.</p>
+<p>But this wasn't too bad, installing Windows 10 after years of not using anything not
+Unix was definitely harder, but it was certainly an adventure. Not a big enough
+adventure to justify using Spacemacs, which is pretty much just a pre-installed config
+for Emacs that uses Evil as its vim emulation (since Spacemacs tries to combine vim
+and Emacs), but an adventure nonetheless.</p>
 
-    <p>It turns out to not be too hard to make Emacs usable by a Vimmer. Just using the Evil plugin, called a package in Emacs, does a lot of work to make the environment pretty much equivalent to Vim. Interestingly, it lacks support for the leader key, which is a boon for anyone who wants custom keystrokes wihtout having to scour through the keys of Vim and figure out what isn't being used by default.</p>
+<p>One thing that got me immediately, once I accepted that using Evil was close enough
+to Vim to be usable in every reasonable way, was the lack of support for relative
+line numbers. If I'm going to jump directly to a line, I don't want to do arithmetic
+to make the jump. I just want to type in how far away I'm going and hit the direction.
+Fourtunately, as is the case with everything else it seems, there's a package for that.
+The package is not quite what I had hoped for, since I can't seem to make the current
+line number show up in the line and it always just shows 0, but the current line shows
+up in the bar at the bottom anyway, so I still know where I am.</p>
 
-    <p>But this wasn't too bad, installing Windows 10 after years of not using anything not Unix was definitely harder, but it was certainly an adventure. Not a big enough adventure to justify using Spacemacs, which is pretty much just a pre-installed config for Emacs that uses Evil as its vim emulation (since Spacemacs tries to combine vim and Emacs), but an adventure nonetheless.</p>
+<p>And while we're on the topic, that bar was some fun. It's called powerline. Because
+it was inspired by powerline from Vim. But it behaves well enough when for the first
+day, so it can stay for now. I may need to make a few modifications later on, but
+I've done enough for one day. It shows what I want, at the moment, so I can't
+complain too much.</p>
 
-    <p>One thing that got me immediately, once I accepted that using Evil was close enough to Vim to be usable in every reasonable way, was the lack of support for relative line numbers. If I'm going to jump directly to a line, I don't want to do arithmetic to make the jump. I just want to type in how far away I'm going and hit the direction. Fourtunately, as is the case with everything else it seems, there's a package for that. The package is not quite what I had hoped for, since I can't seem to make the current line number show up in the line and it always just shows 0, but the current line shows up in the bar at the bottom anyway, so I still know where I am.</p>
+<p>So my first day using Emacs has been fairly okay, once I got used to the new environment
+and how it wants to work. This is going to take a fair amount of time to get comfortable,
+I'm sure, but it's serviceable and it feels overall right. If anything else deserves
+talking about, it'll find its way in here.</p>
 
-    <p>And while we're on the topic, that bar was some fun. It's called powerline. Because it was inspired by powerline from Vim. But it behaves well enough when for the first day, so it can stay for now. I may need to make a few modifications later on, but I've done enough for one day. It shows what I want, at the moment, so I can't complain too much.</p>
+<p>One final note, buffers. Emacs loves buffers. Seems to want at least two at any time,
+and is not scared of spitting one out. Which is nice, until you want to make one yourself.
+The command interface is the same, but the function names are all lispy. Which works, it
+does what I need it to do, so I really don't mind. Especially since I've been looking
+into Scheme recently, but if that's unfamiliar I can't really recommend this setup.
+Not that I would. I would still recommend Vim first. Or NeoVim now. Because it's still
+my favourite editor. That was the whole point. I wanted to combine Vim with a decent GUI,
+and this is what I ended up with. I'm liking it a whole lot more than Atom.</p>
 
-    <p>So my first day using Emacs has been fairly okay, once I got used to the new environment and how it wants to work. This is going to take a fair amount of time to get comfortable, I'm sure, but it's serviceable and it feels overall right. If anything else deserves talking about, it'll find its way in here.</p>
-
-    <p>One final note, buffers. Emacs loves buffers. Seems to want at least two at any time, and is not scared of spitting one out. Which is nice, until you want to make one yourself. The command interface is the same, but the function names are all lispy. Which works, it does what I need it to do, so I really don't mind. Especially since I've been looking into Scheme recently, but if that's unfamiliar I can't really recommend this setup. Not that I would. I would still recommend Vim first. Or NeoVim now. Because it's still my favourite editor. That was the whole point. I wanted to combine Vim with a decent GUI, and this is what I ended up with. I'm liking it a whole lot more than Atom.</p>
-
-    <footer>
-        <ol>
-            <li><a href="https://github.com/cyborgsphinx">Github Profile</a></li>
-            <!-- Links to me elsewhere I guess? -->
-        </ol>
-    </footer>
-</body>
-
+		<footer>
+			<ol>
+				<li><a href="https://github.com/cyborgsphinx">Github Profile</a></li>
+				<!-- Links to me elsewhere I guess? -->
+			</ol>
+		</footer>
+	</body>
 </html>

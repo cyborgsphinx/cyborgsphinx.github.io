@@ -4,8 +4,8 @@ BLOG = blog/index.html blog/os-fun.html blog/vim-in-emacs.html
 
 all: $(ROOT) $(ABOUT) $(BLOG)
 
-%.html: %.md
-	./build $<
+%.html: %.md template.head template.tail
+	./build.py $<
 
 clean:
 	find . -name '*.html' | xargs rm

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>The lair of the Cyborgsphinx</title>
-		<link rel="stylesheet" type="test/css" href="css/main.css">
+		<link rel="stylesheet" type="test/css" href="../css/main.css">
 	</head>
 	<body>
 		<nav>
