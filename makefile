@@ -1,10 +1,10 @@
 ROOT = index.html
 ABOUT = about/index.html
-BLOG = blog/vim-in-emacs.html blog/os-fun.html blog/index.html
+BLOG = blog/web-rant.html blog/vim-in-emacs.html blog/os-fun.html blog/index.html
 
 all: $(ROOT) $(ABOUT) $(BLOG)
 
-%.html: %.md template.head template.tail
+%.html: %.md
 	./build.py $<
 
 clean:
