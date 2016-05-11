@@ -1,6 +1,6 @@
 ROOT = index.html
 ABOUT = about/index.html
-BLOG = blog/index.html blog/os-fun.html blog/vim-in-emacs.html
+BLOG = blog/vim-in-emacs.html blog/os-fun.html blog/index.html
 
 all: $(ROOT) $(ABOUT) $(BLOG)
 
@@ -8,4 +8,4 @@ all: $(ROOT) $(ABOUT) $(BLOG)
 	./build.py $<
 
 clean:
-	find . -name '*.html' | xargs rm
+	rm $(ROOT) $(ABOUT) $(BLOG)
