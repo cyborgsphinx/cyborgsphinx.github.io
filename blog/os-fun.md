@@ -15,7 +15,7 @@ have spent the past seven years dealing almost exclusively with unix-based
 systems. Systems that make sense. Systems meant to be used by people to perform
 tasks.
 
-And it certanly was a learning experience. To begin with, I had a copy of the
+And it certainly was a learning experience. To begin with, I had a copy of the
 Windows 10 Technical Preview lying around from a previous failed experiement
 of the same type. That went on no problem, but it's not what I'm looking for. I
 want the full experience. I want a full install of a user-ready Windows 10.
