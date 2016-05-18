@@ -1,6 +1,6 @@
 ROOT = index.html
-ABOUT = about/index.html
-BLOG = blog/site-build.html blog/web-rant.html blog/vim-in-emacs.html blog/os-fun.html blog/index.html
+ABOUT = $(shell ls about | grep '\.md' | sed 's/\.md/\.html/' | sed 's/^/about\//')
+BLOG = $(shell ls blog | grep '\.md' | sed 's/\.md/\.html/' | sed 's/^/blog\//')
 
 all: $(ROOT) $(ABOUT) $(BLOG)
 
