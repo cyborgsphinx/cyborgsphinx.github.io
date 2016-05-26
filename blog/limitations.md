@@ -1,4 +1,4 @@
-Some Thoughts about Limitations
+Some Thoughts About Limitations
 ===============================
 
 *25 May 2016*
