@@ -1,7 +1,7 @@
 Mass Effect 3 Ending
 ====================
 
-*May 19, 2016*
+*19 May 2016*
 --------------
 
 Before playing Mass Effect 3, I had heard that the ending was a let down.
