@@ -1,7 +1,7 @@
 IDEs Just Get In The Way
 ========================
 
-*17 May, 2016*
+*17 May 2016*
 --------------
 
 I'm not a fan of IDEs.
