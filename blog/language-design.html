@@ -54,13 +54,14 @@
     takes three strings and joins the first two with the second
     inbetween. To keep things straight, proponents of programming
     languages being like English would suggest it look something
-    like <code>join("foo", to: "bar", with: ",")</code> whic
-    produces <code>"foo,bar"</code>. I would put forth that this
-    kind of code, where it is clear what each part does just by
-    looking, is already available: <code>first = "foo" second =
-    "bar" separator = "," join(first, second, separator)</code> So
-    it doesn't really get us anywhere to suggest the first, in my
-    opinion.</p>
+    like <code>join("foo", to: "bar", with: ",");</code> which
+    would produce <code>"foo,bar"</code>. I would put forth that
+    this kind of code, where it is clear what each part does just
+    by looking, is already available:</p>
+    <p><code>first = "foo"; second = "bar"; separator = ",";
+    join(first, second, separator);</code></p>
+    <p>So it doesn't really get us anywhere to suggest the first,
+    in my opinion.</p>
     <p>Yes, that was a contrived example. But the idea of what I'm
     getting at is still clear.</p>
     <p>Another thing that comes out of having code read like

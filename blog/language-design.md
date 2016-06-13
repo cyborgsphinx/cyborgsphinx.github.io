@@ -26,14 +26,16 @@ But even if we used another language as the target, I don't think it would help.
 Some of the things that come out of this may be useful, like using a parameter name in a function call to represent what the parameter is, but that's not because it's more like English.
 A very similar effect can be achived simply with descriptive variable names and no magic numbers.
 As an example, one might make a function `join()` which takes three strings and joins the first two with the second inbetween.
-To keep things straight, proponents of programming languages being like English would suggest it look something like `join("foo", to: "bar", with: ",")` whic produces `"foo,bar"`.
+To keep things straight, proponents of programming languages being like English would suggest it look something like `join("foo", to: "bar", with: ",");` which would produce `"foo,bar"`.
 I would put forth that this kind of code, where it is clear what each part does just by looking, is already available:
+
 ```
-first = "foo"
-second = "bar"
-separator = ","
-join(first, second, separator)
+first = "foo";
+second = "bar";
+separator = ",";
+join(first, second, separator);
 ```
+
 So it doesn't really get us anywhere to suggest the first, in my opinion.
 
 Yes, that was a contrived example.
