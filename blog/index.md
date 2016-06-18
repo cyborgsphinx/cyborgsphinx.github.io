@@ -5,6 +5,7 @@ As you may be able to guess, this is where I will be linking all the
 blog posts I will theoretically be making when I have figured out the 
 rest of all this.
 
+- [Yacc isn't all that amazing](useless.html)
 - [My thoughts on how math is taught](teaching-math.html)
 - [Why I Don't Use Code School](learning.html)
 - [Current Language Design Sucks](language-design.html)
