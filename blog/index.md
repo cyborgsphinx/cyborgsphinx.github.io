@@ -6,6 +6,8 @@ blog posts I will theoretically be making when I have figured out the
 rest of all this.
 
 - ["Learning" to Waltz](last-waltz.html)
+- [Ubuntu is too easy](system.html)
+- [Some thoughts on parentheses](parens.html)
 - [Pass by Reference and Pass by Value](pass.html)
 - [The Kitchen Sink Approach is Bad Design](kitchen-sink.html)
 - [Yacc isn't all that amazing](useless.html)
