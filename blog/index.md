@@ -5,6 +5,7 @@ As you may be able to guess, this is where I will be linking all the
 blog posts I will theoretically be making when I have figured out the 
 rest of all this.
 
+- [Symbol Tables Shouldn't Be This Hard](symbol-table.html)
 - ["Learning" to Waltz](last-waltz.html)
 - [Ubuntu is too easy](system.html)
 - [Some thoughts on parentheses](parens.html)
