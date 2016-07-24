@@ -1,17 +1,18 @@
 Here be thoughts of the writer of this site
 ===========================================
 
-As you may be able to guess, this is where I will be linking all the 
-blog posts I will theoretically be making when I have figured out the 
+As you may be able to guess, this is where I will be linking all the
+blog posts I will theoretically be making when I have figured out the
 rest of all this.
 
+- [My First Look at Linters in Atom](linters.html)
 - [LLVM Needs Better Documentation](llvm.html)
 - [Some thoughts on personalities](personality.html)
 - [Symbol Tables Shouldn't Be This Hard](symbol-table.html)
 - ["Learning" to Waltz](last-waltz.html)
 - [Ubuntu is too easy](system.html)
 - [Some thoughts on parentheses](parens.html)
-- [Pass by Reference and Pass by Value](pass.html)
+- [Pass by Reference and Pass by Value](pass.html)st
 - [The Kitchen Sink Approach is Bad Design](kitchen-sink.html)
 - [Yacc isn't all that amazing](useless.html)
 - [My thoughts on how math is taught](teaching-math.html)
