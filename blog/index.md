@@ -5,6 +5,7 @@ As you may be able to guess, this is where I will be linking all the
 blog posts I will theoretically be making when I have figured out the
 rest of all this.
 
+- [The Difference Between Object Oriented Programming and Functional Programming](global-mutable-state.html)
 - [My First Look at Linters in Atom](linters.html)
 - [LLVM Needs Better Documentation](llvm.html)
 - [Some thoughts on personalities](personality.html)
