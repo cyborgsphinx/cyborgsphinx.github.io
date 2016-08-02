@@ -5,6 +5,7 @@ As you may be able to guess, this is where I will be linking all the
 blog posts I will theoretically be making when I have figured out the
 rest of all this.
 
+- [Compilers are only as safe as their code generation](compiler-safety.html)
 - [Haskell may not be exactly functional](haskell.html)
 - [Sink or Swim is a Bad Way to Teach](sink-or-swim.html)
 - [The Difference Between Object Oriented Programming and Functional Programming](global-mutable-state.html)
