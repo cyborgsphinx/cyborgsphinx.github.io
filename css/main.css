@@ -43,8 +43,17 @@ p {
 	color: #333;
 }
 
+pre {
+	font-size: 1.5em;
+	background: #f5f2f0;
+}
+
 footer {
 	border-top: 2px solid #d5d5d5;
 	font-size: .8em;
 }
 
+code {
+	font-family: monospace;
+	background: #f5f2f0;
+}

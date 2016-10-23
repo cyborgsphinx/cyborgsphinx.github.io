@@ -29,12 +29,10 @@ As an example, one might make a function `join()` which takes three strings and 
 To keep things straight, proponents of programming languages being like English would suggest it look something like `join("foo", to: "bar", with: ",");` which would produce `"foo,bar"`.
 I would put forth that this kind of code, where it is clear what each part does just by looking, is already available:
 
-```
-first = "foo";
-second = "bar";
-separator = ",";
-join(first, second, separator);
-```
+	first = "foo";
+	second = "bar";
+	separator = ",";
+	join(first, second, separator);
 
 So it doesn't really get us anywhere to suggest the first, in my opinion.
 
