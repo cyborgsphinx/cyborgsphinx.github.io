@@ -5,6 +5,7 @@ As you may be able to guess, this is where I will be linking all the
 blog posts I will theoretically be making when I have figured out the
 rest of all this.
 
+- [Extensions and Syntactic Sugar in ICgrep](extensions-and-sugar.html)
 - [Pokemon Go as a Motivation App](pokemon-go-outside.html)
 - [Compilers are only as safe as their code generation](compiler-safety.html)
 - [Haskell may not be exactly functional](haskell.html)
