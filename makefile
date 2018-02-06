@@ -6,10 +6,14 @@ BLOG = $(shell ls src/blog/*.md | sed 's/\.md/\.html/' | sed 's/src\///')
 all: $(ROOT) $(ABOUT) $(BLOG)
 
 %.html: src/%.md src/template.html
-	./build.sh $< $@ src/template
+	@echo "Creating $@ from $<"
+	pandoc -t html $< --template=src/template -o $@
+	tidy -qim $@
 
 blog/%.html: src/blog/%.md src/blog/template.html
-	./build.sh $< $@ src/blog/template
+	@echo "Creating $@ from $<"
+	pandoc -t html $< --template=src/blog/template -o $@
+	tidy -qim $@
 
 clean:
 	rm index.html blog/*
