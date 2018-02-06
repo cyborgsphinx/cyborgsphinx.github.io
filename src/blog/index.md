@@ -3,10 +3,10 @@ title: Blog
 ...
 
 
-I have thoughts
-===============
+Things I Have Written
+=====================
 
-This is an archive of them.
+I have thoughts. This is an archive of them.
 
 A great deal of these were written for a technical writing course, and are very much a product of that.
 
