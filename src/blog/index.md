@@ -2,10 +2,10 @@
 title: Blog
 ...
 
-Here be thoughts of the writer of this site
-===========================================
 
-I have thoughts.
+I have thoughts
+===============
+
 This is an archive of them.
 
 A great deal of these were written for a technical writing course, and are very much a product of that.
