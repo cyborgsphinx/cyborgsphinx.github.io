@@ -5,9 +5,10 @@ title: Blog
 Here be thoughts of the writer of this site
 ===========================================
 
-As you may be able to guess, this is where I will be linking all the
-blog posts I will theoretically be making when I have figured out the
-rest of all this.
+I have thoughts.
+This is an archive of them.
+
+A great deal of these were written for a technical writing course, and are very much a product of that.
 
 - [Extensions and Syntactic Sugar in ICgrep](extensions-and-sugar.html)
 - [Pokemon Go as a Motivation App](pokemon-go-outside.html)
