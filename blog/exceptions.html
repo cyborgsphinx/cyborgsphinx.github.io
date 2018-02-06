@@ -1,83 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="generator" content=
-    "HTML Tidy for HTML5 for Linux version 5.2.0">
-    <title>The lair of the Cyborgsphinx</title>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <title>Thoughts On Exception Handling - Lair of the
+  Cyborgsphinx</title>
 </head>
 <body>
-    <nav>
-        <ol>
-            <li>
-                <a href="../index.html">Home</a>
-            </li>
-            <li>
-                <a href="../about/index.html">About</a>
-            </li>
-            <li>
-                <a href="../blog/index.html">Stories and
-                Musings</a>
-            </li>
-            <!-- Add sections here as directories are created -->
-        </ol>
-    </nav>
-    <h1>Thoughts On Exception Hnadling</h1>
-    <h2><em>30 May 2016</em></h2>
-    <p>When I first came across expetions and the things that
-    surround them, I wasn't a fan. To be fair, that was because it
-    was new and, like most other people, I didn't like new things.
-    I've since had time to think about how exception handling works
-    and why it might exist, and I still don't like it.</p>
-    <p>As far as I can tell, exception handling exists because how
-    errors are handled in C is not great. No way to tell which
-    functions might fail, have to include a header to get any real
-    information out of it, stuff like that. It's really not a great
-    way to go about handling errors.</p>
-    <p>Since the type system wasn't incredibly powerful back then,
-    the idea came around that functions could throw exceptions,
-    like the computer itself does. So all you need to do is wrap
-    your function in a <code>try</code> block, toss in a
-    <code>catch</code> block corresponding to the error that can be
-    thrown, and you're good to go. Put your error handling code in
-    the <code>catch</code>, anything that needs to go with the
-    fallible function in the <code>try</code>, and move on. No
-    importing another header. No checking a global variable that
-    can potentially be modified in another thread. Sounds pretty
-    good.</p>
-    <p>Except how large should the <code>try</code> block be?
-    Should you put your entire function in one large block, and
-    catch all the errors in succeeding <code>catch</code>es? Or
-    should you put as little as possible in a single
-    <code>try</code>, and only <code>catch</code> the errors from
-    that block? I'm in favour of the second, personally.</p>
-    <p>I'm in favour of it because it is closer to the method I
-    prefer, which is for errors to be imbedded in the return of the
-    function, like in Go and Rust. Go supports multiple returns,
-    allowing for returning an error value along side the value
-    expected, and the programmer is supposed to handle it
-    themselves. Rust has entire types dedicated to possible
-    failures, made possible by algrbraic data types, which again
-    must be handled before the value can be used. This method makes
-    it clear which functions can fail, which helps future readers
-    of the code. I believe that code should be for the reader, with
-    the compiler taking care of optimizations wherever
-    possible.</p>
-    <p>In light of this, I don't mind exception handling when done
-    in the second way for the same reason; code is for the reader,
-    and having <code>try</code> wrapping as little as possible
-    gives more information to the reader. However, I do believe
-    that exception handling is a red flag. It is an indication that
-    the programming language is not built in such a way that error
-    handling can be done gracefully by simply returning a
-    value.</p>
-    <footer>
-        <ol>
-            <li>
-                <a href="https://github.com/cyborgsphinx">Github
-                Profile</a>
-            </li><!-- Links to me elsewhere I guess? -->
-        </ol>
-    </footer>
+  <nav>
+    <ol>
+      <li>
+        <a href="../index.html">Home</a>
+      </li>
+      <li>
+        <a href="../about/index.html">About</a>
+      </li>
+      <li>
+        <a href="../blog/index.html">Stories and Musings</a>
+      </li><!-- Add sections here as directories are created -->
+    </ol>
+  </nav>
+  <h1 id="thoughts-on-exception-handling">Thoughts On Exception
+  Handling</h1>
+  <h2 id="may-2016"><em>30 May 2016</em></h2>
+  <p>When I first came across expetions and the things that
+  surround them, I wasn’t a fan. To be fair, that was because it
+  was new and, like most other people, I didn’t like new things.
+  I’ve since had time to think about how exception handling works
+  and why it might exist, and I still don’t like it.</p>
+  <p>As far as I can tell, exception handling exists because how
+  errors are handled in C is not great. No way to tell which
+  functions might fail, have to include a header to get any real
+  information out of it, stuff like that. It’s really not a great
+  way to go about handling errors.</p>
+  <p>Since the type system wasn’t incredibly powerful back then,
+  the idea came around that functions could throw exceptions, like
+  the computer itself does. So all you need to do is wrap your
+  function in a <code>try</code> block, toss in a
+  <code>catch</code> block corresponding to the error that can be
+  thrown, and you’re good to go. Put your error handling code in
+  the <code>catch</code>, anything that needs to go with the
+  fallible function in the <code>try</code>, and move on. No
+  importing another header. No checking a global variable that can
+  potentially be modified in another thread. Sounds pretty
+  good.</p>
+  <p>Except how large should the <code>try</code> block be? Should
+  you put your entire function in one large block, and catch all
+  the errors in succeeding <code>catch</code>es? Or should you put
+  as little as possible in a single <code>try</code>, and only
+  <code>catch</code> the errors from that block? I’m in favour of
+  the second, personally.</p>
+  <p>I’m in favour of it because it is closer to the method I
+  prefer, which is for errors to be imbedded in the return of the
+  function, like in Go and Rust. Go supports multiple returns,
+  allowing for returning an error value along side the value
+  expected, and the programmer is supposed to handle it themselves.
+  Rust has entire types dedicated to possible failures, made
+  possible by algrbraic data types, which again must be handled
+  before the value can be used. This method makes it clear which
+  functions can fail, which helps future readers of the code. I
+  believe that code should be for the reader, with the compiler
+  taking care of optimizations wherever possible.</p>
+  <p>In light of this, I don’t mind exception handling when done in
+  the second way for the same reason; code is for the reader, and
+  having <code>try</code> wrapping as little as possible gives more
+  information to the reader. However, I do believe that exception
+  handling is a red flag. It is an indication that the programming
+  language is not built in such a way that error handling can be
+  done gracefully by simply returning a value.</p>
+  <footer>
+    <ol>
+      <li>
+        <a href="https://github.com/cyborgsphinx">Github
+        Profile</a>
+      </li><!-- Links to me elsewhere I guess? -->
+    </ol>
+  </footer>
 </body>
 </html>

@@ -1,77 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="generator" content=
-    "HTML Tidy for HTML5 for Mac OS X version 5.2.0">
-    <title>The lair of the Cyborgsphinx</title>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <title>Pass By Reference and Pass By Value - Lair of the
+  Cyborgsphinx</title>
 </head>
 <body>
-    <nav>
-        <ol>
-            <li>
-                <a href="../index.html">Home</a>
-            </li>
-            <li>
-                <a href="../about/index.html">About</a>
-            </li>
-            <li>
-                <a href="../blog/index.html">Stories and
-                Musings</a>
-            </li>
-            <!-- Add sections here as directories are created -->
-        </ol>
-    </nav>
-    <h1>Pass By Reference and Pass By Value</h1>
-    <h2><em>26 June 2016</em></h2>
-    <p>Some modern languages like to talk about pass by reference
-    and pass by value. They'll say that a struct is pass by value,
-    and a class is pass by reference. D and Swift have this
-    distinction, and probably others as well.</p>
-    <p>This irked me greatly for a while. There should be some
-    other way to determine whether or not something will be passed
-    by reference or by value. It shouldn't be baked into the type
-    itself. C++ and Rust manage this, so clearly it's
-    manageable.</p>
-    <p>But I think I understand what the people writing these words
-    are trying to say. See, pass by reference all the time can be a
-    bad idea; if you return a reference to a function's local
-    variable, it'll point to garbage memory at best and something
-    mission-critical at worst. So while saying these things are
-    passed by reference or by value is correct, I don't think
-    that's what they really mean. I think they mean that there is a
-    distinction between stack-allocated and heap-allocated
-    objects.</p>
-    <p>A stack-allocated object is an object that lives in a stack
-    frame. It makes sense that this would be pass by value, because
-    of the problem I described above. It also mimics primitive
-    types, which are always passed by value because copying them is
-    cheap. So when someone says pass by value, what they really
-    mean is stack-allocated.</p>
-    <p>This also works for heap-allocated objects. When you
-    allocate an object on the heap, you can only ever really give a
-    reference to it. You could dereference the pointer and copy the
-    values into a stack-allocated object and pass that by value,
-    but it's a lot simpler - and quicker - to just pass the
-    pointer. So pass by reference really means heap-allocated.</p>
-    <p>It makes sense, then, that these languages would avoid using
-    the terms that make sense to someone like me. People like me
-    pay attention to things like the heap and stack frames and
-    whatnot. These things were meant to be abstracted away in
-    higher level languages. One such abstraction, meant to remove
-    thoughts of the heap, is garbage collection. And garbage
-    collection is something all the languages that talk about pass
-    by reference and pass by value seem to have in common.</p>
-    <p>So now I'm less angry about languages using both
-    <code>struct</code> and <code>class</code> to make objects. It
-    turns out the distinction might actually matter.</p>
-    <footer>
-        <ol>
-            <li>
-                <a href="https://github.com/cyborgsphinx">Github
-                Profile</a>
-            </li><!-- Links to me elsewhere I guess? -->
-        </ol>
-    </footer>
+  <nav>
+    <ol>
+      <li>
+        <a href="../index.html">Home</a>
+      </li>
+      <li>
+        <a href="../about/index.html">About</a>
+      </li>
+      <li>
+        <a href="../blog/index.html">Stories and Musings</a>
+      </li><!-- Add sections here as directories are created -->
+    </ol>
+  </nav>
+  <h1 id="pass-by-reference-and-pass-by-value">Pass By Reference
+  and Pass By Value</h1>
+  <h2 id="june-2016"><em>26 June 2016</em></h2>
+  <p>Some modern languages like to talk about pass by reference and
+  pass by value. They’ll say that a struct is pass by value, and a
+  class is pass by reference. D and Swift have this distinction,
+  and probably others as well.</p>
+  <p>This irked me greatly for a while. There should be some other
+  way to determine whether or not something will be passed by
+  reference or by value. It shouldn’t be baked into the type
+  itself. C++ and Rust manage this, so clearly it’s manageable.</p>
+  <p>But I think I understand what the people writing these words
+  are trying to say. See, pass by reference all the time can be a
+  bad idea; if you return a reference to a function’s local
+  variable, it’ll point to garbage memory at best and something
+  mission-critical at worst. So while saying these things are
+  passed by reference or by value is correct, I don’t think that’s
+  what they really mean. I think they mean that there is a
+  distinction between stack-allocated and heap-allocated
+  objects.</p>
+  <p>A stack-allocated object is an object that lives in a stack
+  frame. It makes sense that this would be pass by value, because
+  of the problem I described above. It also mimics primitive types,
+  which are always passed by value because copying them is cheap.
+  So when someone says pass by value, what they really mean is
+  stack-allocated.</p>
+  <p>This also works for heap-allocated objects. When you allocate
+  an object on the heap, you can only ever really give a reference
+  to it. You could dereference the pointer and copy the values into
+  a stack-allocated object and pass that by value, but it’s a lot
+  simpler - and quicker - to just pass the pointer. So pass by
+  reference really means heap-allocated.</p>
+  <p>It makes sense, then, that these languages would avoid using
+  the terms that make sense to someone like me. People like me pay
+  attention to things like the heap and stack frames and whatnot.
+  These things were meant to be abstracted away in higher level
+  languages. One such abstraction, meant to remove thoughts of the
+  heap, is garbage collection. And garbage collection is something
+  all the languages that talk about pass by reference and pass by
+  value seem to have in common.</p>
+  <p>So now I’m less angry about languages using both
+  <code>struct</code> and <code>class</code> to make objects. It
+  turns out the distinction might actually matter.</p>
+  <footer>
+    <ol>
+      <li>
+        <a href="https://github.com/cyborgsphinx">Github
+        Profile</a>
+      </li><!-- Links to me elsewhere I guess? -->
+    </ol>
+  </footer>
 </body>
 </html>

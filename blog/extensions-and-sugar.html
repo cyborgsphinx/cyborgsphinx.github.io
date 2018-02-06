@@ -1,165 +1,154 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="generator" content=
-    "HTML Tidy for HTML5 for Apple macOS version 5.6.0">
-    <title>The lair of the Cyborgsphinx</title>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Apple macOS version 5.6.0">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <title>Extensions and Syntactic Sugar in ICgrep - Lair of the
+  Cyborgsphinx</title>
 </head>
 <body>
-    <nav>
-        <ol>
-            <li>
-                <a href="../index.html">Home</a>
-            </li>
-            <li>
-                <a href="../about/index.html">About</a>
-            </li>
-            <li>
-                <a href="../blog/index.html">Stories and
-                Musings</a>
-            </li>
-            <!-- Add sections here as directories are created -->
-        </ol>
-    </nav>
-    <h1>Extensions and Syntactic Sugar in ICgrep</h1>
-    <p>The language of regular expressions really has only four
-    operators: Concatenation, Alternation, Grouping, and the Kleene
-    Closure (the star). If you're unfamiliar with these terms, it
-    works as follows:</p>
-    <ul>
-        <li>Concatenation matches sequential regular expressions,
-        so something like <code>ab</code> would match
-        <code>a</code> followed by <code>b</code>.</li>
-        <li>Alternation matches any of the given regular
-        expressions, so <code>a|b</code> would match <code>a</code>
-        or <code>b</code>.</li>
-        <li>Grouping is just a way ensuring a regular expression is
-        treated as a unit, so while <code>ab|c</code> matches
-        <code>ab</code> and <code>ac</code>, <code>(ab)|c</code>
-        matches <code>ab</code> or <code>c</code>.</li>
-        <li>The Kleene Closure matches an unbounded number of
-        repititions of a regular expression. It is equivalent to
-        something like <code>epsilon</code> <code>| RE | RERE |
-        RERERE | ...</code>, except that the elipsis is not part of
-        the language.</li>
-    </ul>
-    <p>These four operators are enough to make any regular
-    expression, but they are somewhat cumbersome. Tools often
-    extend this to add in some useful or repeated concepts, like
-    the plus operator, the question mark, or bounded repitition.
-    Even character classes are an extension on the language.</p>
-    <p>Since the four operators above can match any regular
-    expression, and these extensions don't add power to the
-    language, they could all be implemented as syntactic sugar;
-    that is, they could exist only in the parser and be transformed
-    into more primitive operations for the later phases. Another
-    way would be to make them an extension, with recognition
-    throughout the tool they're given to.</p>
-    <p>Let's find out what ICgrep, a grep-like tool, does with
-    these.</p>
-    <p>In order to familiarize ourselves with the parser, we'll
-    give it some simple regular expressions.</p>
-    <pre><code>$ ./icgrep -ShowREs 'ab' sample.txt &gt; /dev/null
-Parser:
-(Seq[CC "CC_61" [97]/Unicode,CC "CC_62" [98]/Unicode])
-$ ./icgrep -ShowREs 'a|b' sample.txt &gt; /dev/null
-Parser:
-CC "CC_61_62" [97-98]/Unicode
-$ ./icgrep -ShowREs '(ac)|b' sample.txt &gt; /dev/null
-Parser:
-(Alt[Name "\1" =((Seq[CC "CC_61" [97]/Unicode,CC "CC_63" [99]/Unicode])),CC "CC_62" [98]/Unicode])
-</code></pre>
-    <p>Already we're seeing some interesting things:</p>
-    <ul>
-        <li><code>a|b</code> is converted to a character class,
-        since it's equivalent to <code>[ab]</code></li>
-        <li>this means that seeing the <code>Alt</code> operator
-        requires more complex expressions, so grouping is required
-        to make it show up</li>
-    </ul>
-    <p>I'll leave the Kleene Closure for later.</p>
-    <p>First, we can investigate the <code>?</code> operator, which
-    takes the regular expression before it and matches its presence
-    or absence - zero or one appearances.</p>
-    <pre><code>$ ./icgrep -ShowREs 'x?' sample.txt &gt; /dev/null
-Parser:
-(Alt[CC "CC_78" [120]/Unicode,(Seq[])])
-</code></pre>
-    <p>This seems to be converting the regular expression
-    <code>x?</code> to its equivalent form using basic regular
-    expression operators, <code>x|epsilon</code>. Since
-    <code>epsilon</code> is just the empty string, it is
-    represented internally as an empty sequence
-    <code>(Seq[])</code>.</p>
-    <p>Next, we'll look at the <code>+</code> operator, which is
-    used like <code>a+</code> and is equivalent to
-    <code>aa*</code>. Let's see what ICgrep uses for this.</p>
-    <pre><code>$ ./icgrep -ShowREs 'x+' sample.txt &gt; /dev/null
-Parser:
-Rep(CC "CC_78" [120]/Unicode,1,Unbounded)
-</code></pre>
-    <p>It looks like the character <code>x</code> is being expected
-    at least once, with no upper bound. So the Kleene Closure is
-    just a simple <code>s/1/0/</code>, right?</p>
-    <pre><code>$ ./icgrep -ShowREs 'x*' sample.txt &gt; /dev/null
-Parser:
-(Alt[Rep(CC "CC_78" [120]/Unicode,1,Unbounded),(Seq[])])
-</code></pre>
-    <p>Nope.</p>
-    <p>The closure is actually being treated as an extension on
-    this form of repetition, which expects at least one instance of
-    the regular expression. So to the rest of ICgrep,
-    <code>x*</code> is just <code>x+|epsilon</code>.</p>
-    <p>Let's see if we can change that <code>Unbounded</code> to a
-    number, using bounded repititions.</p>
-    <pre>
-    <code>$ ./icgrep -ShowREs 'x{3,7}' sample.txt &gt; /dev/null
-Parser:
-Rep(CC "CC_78" [120]/Unicode,3,7)
-</code></pre>
-    <p>Looks like <code>Rep</code> does exactly what one would
-    expect, given the values.</p>
-    <p>It looks like <code>x+</code> may be treated as syntactic
-    sugar for <code>x{1,}</code>. Let's try that out.</p>
-    <pre>
-    <code>$ ./icgrep -ShowREs 'x{1,}' sample.txt &gt; /dev/null
-Parser:
-Rep(CC "CC_78" [120]/Unicode,1,Unbounded)
-$ ./icgrep -ShowREs 'x+' sample.txt &gt; /dev/null
-Parser:
-Rep(CC "CC_78" [120]/Unicode,1,Unbounded)
-</code></pre>
-    <p>As expected, exactly the same. So with this, and the fact
-    that <code>x{,}</code> is just <code>x*</code>, we can guess
-    what <code>x{,}</code> will look like.</p>
-    <pre>
-    <code>$ ./icgrep -ShowREs 'x{,}' sample.txt &gt; /dev/null 
-icgrep ERROR: Expecting integer
-</code></pre>
-    <p>Looks like they expect you to just use <code>x*</code>.
-    That's good, it's simpler anyway.</p>
-    <p>But where are they expecting that integer? After all, I
-    don't want to have to write out the equivalent altenation for
-    <code>x{,10}</code>.</p>
-    <pre>
-    <code>$ ./icgrep -ShowREs 'x{,10}' sample.txt &gt; /dev/null
-Parser:
-(Alt[Rep(CC "CC_78" [120]/Unicode,1,10),(Seq[])])
-</code></pre>
-    <p>Okay, that's better. They expect AN integer, but either one
-    is fine.</p>
-    <p>That's all the extensions on regular expressions I'm
-    familiar with, but I'm sure that ICgrep supports more. If
-    you're curious about whether it's treated as syntactic sugar or
-    a full extension, remember the <code>-ShowREs</code> flag.</p>
-    <footer>
-        <ol>
-            <li>
-                <a href="https://github.com/cyborgsphinx">Github
-                Profile</a>
-            </li><!-- Links to me elsewhere I guess? -->
-        </ol>
-    </footer>
+  <nav>
+    <ol>
+      <li>
+        <a href="../index.html">Home</a>
+      </li>
+      <li>
+        <a href="../about/index.html">About</a>
+      </li>
+      <li>
+        <a href="../blog/index.html">Stories and Musings</a>
+      </li><!-- Add sections here as directories are created -->
+    </ol>
+  </nav>
+  <h1 id="extensions-and-syntactic-sugar-in-icgrep">Extensions and
+  Syntactic Sugar in ICgrep</h1>
+  <p>The language of regular expressions really has only four
+  operators: Concatenation, Alternation, Grouping, and the Kleene
+  Closure (the star). If you’re unfamiliar with these terms, it
+  works as follows:</p>
+  <ul>
+    <li>Concatenation matches sequential regular expressions, so
+    something like <code>ab</code> would match <code>a</code>
+    followed by <code>b</code>.</li>
+    <li>Alternation matches any of the given regular expressions,
+    so <code>a|b</code> would match <code>a</code> or
+    <code>b</code>.</li>
+    <li>Grouping is just a way ensuring a regular expression is
+    treated as a unit, so while <code>ab|c</code> matches
+    <code>ab</code> and <code>ac</code>, <code>(ab)|c</code>
+    matches <code>ab</code> or <code>c</code>.</li>
+    <li>The Kleene Closure matches an unbounded number of
+    repititions of a regular expression. It is equivalent to
+    something like <code>epsilon</code> <code>| RE | RERE | RERERE
+    | ...</code>, except that the elipsis is not part of the
+    language.</li>
+  </ul>
+  <p>These four operators are enough to make any regular
+  expression, but they are somewhat cumbersome. Tools often extend
+  this to add in some useful or repeated concepts, like the plus
+  operator, the question mark, or bounded repitition. Even
+  character classes are an extension on the language.</p>
+  <p>Since the four operators above can match any regular
+  expression, and these extensions don’t add power to the language,
+  they could all be implemented as syntactic sugar; that is, they
+  could exist only in the parser and be transformed into more
+  primitive operations for the later phases. Another way would be
+  to make them an extension, with recognition throughout the tool
+  they’re given to.</p>
+  <p>Let’s find out what ICgrep, a grep-like tool, does with
+  these.</p>
+  <p>In order to familiarize ourselves with the parser, we’ll give
+  it some simple regular expressions.</p>
+  <pre><code>$ ./icgrep -ShowREs 'ab' sample.txt &gt; /dev/null
+    Parser:
+    (Seq[CC "CC_61" [97]/Unicode,CC "CC_62" [98]/Unicode])
+    $ ./icgrep -ShowREs 'a|b' sample.txt &gt; /dev/null
+    Parser:
+    CC "CC_61_62" [97-98]/Unicode
+    $ ./icgrep -ShowREs '(ac)|b' sample.txt &gt; /dev/null
+    Parser:
+    (Alt[Name "\1" =((Seq[CC "CC_61" [97]/Unicode,CC "CC_63" [99]/Unicode])),CC "CC_62" [98]/Unicode])</code></pre>
+  <p>Already we’re seeing some interesting things:</p>
+  <ul>
+    <li><code>a|b</code> is converted to a character class, since
+    it’s equivalent to <code>[ab]</code></li>
+    <li>this means that seeing the <code>Alt</code> operator
+    requires more complex expressions, so grouping is required to
+    make it show up</li>
+  </ul>
+  <p>I’ll leave the Kleene Closure for later.</p>
+  <p>First, we can investigate the <code>?</code> operator, which
+  takes the regular expression before it and matches its presence
+  or absence - zero or one appearances.</p>
+  <pre><code>$ ./icgrep -ShowREs 'x?' sample.txt &gt; /dev/null
+    Parser:
+    (Alt[CC "CC_78" [120]/Unicode,(Seq[])])</code></pre>
+  <p>This seems to be converting the regular expression
+  <code>x?</code> to its equivalent form using basic regular
+  expression operators, <code>x|epsilon</code>. Since
+  <code>epsilon</code> is just the empty string, it is represented
+  internally as an empty sequence <code>(Seq[])</code>.</p>
+  <p>Next, we’ll look at the <code>+</code> operator, which is used
+  like <code>a+</code> and is equivalent to <code>aa*</code>. Let’s
+  see what ICgrep uses for this.</p>
+  <pre><code>$ ./icgrep -ShowREs 'x+' sample.txt &gt; /dev/null
+    Parser:
+    Rep(CC "CC_78" [120]/Unicode,1,Unbounded)</code></pre>
+  <p>It looks like the character <code>x</code> is being expected
+  at least once, with no upper bound. So the Kleene Closure is just
+  a simple <code>s/1/0/</code>, right?</p>
+  <pre><code>$ ./icgrep -ShowREs 'x*' sample.txt &gt; /dev/null
+    Parser:
+    (Alt[Rep(CC "CC_78" [120]/Unicode,1,Unbounded),(Seq[])])</code></pre>
+  <p>Nope.</p>
+  <p>The closure is actually being treated as an extension on this
+  form of repetition, which expects at least one instance of the
+  regular expression. So to the rest of ICgrep, <code>x*</code> is
+  just <code>x+|epsilon</code>.</p>
+  <p>Let’s see if we can change that <code>Unbounded</code> to a
+  number, using bounded repititions.</p>
+  <pre><code>$ ./icgrep -ShowREs 'x{3,7}' sample.txt &gt; /dev/null
+    Parser:
+    Rep(CC "CC_78" [120]/Unicode,3,7)</code></pre>
+  <p>Looks like <code>Rep</code> does exactly what one would
+  expect, given the values.</p>
+  <p>It looks like <code>x+</code> may be treated as syntactic
+  sugar for <code>x{1,}</code>. Let’s try that out.</p>
+  <pre><code>$ ./icgrep -ShowREs 'x{1,}' sample.txt &gt; /dev/null
+    Parser:
+    Rep(CC "CC_78" [120]/Unicode,1,Unbounded)
+    $ ./icgrep -ShowREs 'x+' sample.txt &gt; /dev/null
+    Parser:
+    Rep(CC "CC_78" [120]/Unicode,1,Unbounded)</code></pre>
+  <p>As expected, exactly the same. So with this, and the fact that
+  <code>x{,}</code> is just <code>x*</code>, we can guess what
+  <code>x{,}</code> will look like.</p>
+  <pre><code>$ ./icgrep -ShowREs 'x{,}' sample.txt &gt; /dev/null 
+    icgrep ERROR: Expecting integer</code></pre>
+  <p>Looks like they expect you to just use <code>x*</code>. That’s
+  good, it’s simpler anyway.</p>
+  <p>But where are they expecting that integer? After all, I don’t
+  want to have to write out the equivalent altenation for
+  <code>x{,10}</code>.</p>
+  <pre><code>$ ./icgrep -ShowREs 'x{,10}' sample.txt &gt; /dev/null
+    Parser:
+    (Alt[Rep(CC "CC_78" [120]/Unicode,1,10),(Seq[])])</code></pre>
+  <p>Okay, that’s better. They expect AN integer, but either one is
+  fine.</p>
+  <p>That’s all the extensions on regular expressions I’m familiar
+  with, but I’m sure that ICgrep supports more. If you’re curious
+  about whether it’s treated as syntactic sugar or a full
+  extension, remember the <code>-ShowREs</code> flag.</p>
+  <footer>
+    <ol>
+      <li>
+        <a href="https://github.com/cyborgsphinx">Github
+        Profile</a>
+      </li><!-- Links to me elsewhere I guess? -->
+    </ol>
+  </footer>
 </body>
 </html>
