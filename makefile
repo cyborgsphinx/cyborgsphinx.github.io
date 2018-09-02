@@ -3,16 +3,16 @@ ROOT = index.html
 BLOG = $(call find_file,blog)
 DND = $(call find_file,dnd)
 
-.PHONY: all clean
-
-all: $(ROOT) $(BLOG) $(DND)
-
 define generate_file
 	@echo "Creating $(2) from $(1)"
 	@mkdir -p $(dir $(2))
 	@pandoc -t html $(1) --template=src/template -V$(3) -o $(2)
 	@tidy -qim $(2)
 endef
+
+.PHONY: all clean
+
+all: $(ROOT) $(BLOG) $(DND)
 
 %.html: src/%.md src/template.html
 	$(call generate_file,$<,$@,'extra:')
