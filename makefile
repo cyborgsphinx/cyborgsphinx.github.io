@@ -1,7 +1,7 @@
-find_file = $(patsubst %.md,%.html,$(subst src/,,$(filter %.md,$(shell find $(1)))))
+find_file = $(patsubst %.md,%.html,$(subst src/,,$(filter %.md,$(shell find src/$(1)))))
 ROOT = index.html
-BLOG = $(call find_file,src/blog)
-DND = $(call find_file,src/dnd)
+BLOG = $(call find_file,blog)
+DND = $(call find_file,dnd)
 
 .PHONY: all clean
 
