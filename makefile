@@ -3,7 +3,7 @@ BLOG = $(shell ls src/blog/*.md | sed 's/\.md/\.html/' | sed 's/src\///')
 
 .PHONY: all clean
 
-all: $(ROOT) $(ABOUT) $(BLOG)
+all: $(ROOT) $(BLOG)
 
 %.html: src/%.md src/template.html
 	@echo "Creating $@ from $<"
@@ -16,4 +16,4 @@ blog/%.html: src/blog/%.md src/template.html
 	tidy -qim $@
 
 clean:
-	rm index.html blog/*
+	rm $(ROOT) $(BLOG)
