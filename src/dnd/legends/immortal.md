@@ -1,0 +1,79 @@
+---
+title: The Immortal of Big Rock Mountain
+...
+
+Long ago, there was a group of students studying the necromantic arts who were researching how to extend life indefinitely.
+They achieved more than anyone believed possible, eventually discovering how to avoid death entirely.
+However, the power was too much for them to control, and all but one lost their lives in the ritual.
+The sole survivor did become immortal, having unknowingly used the others' lives as sacrifices.
+
+She got more than she expected, too.
+Sickness would not take her, and she could not be wounded in any way.
+While all around her eventually went to meet the Raven Queen, she remained in the material world.
+She was held in a sort of statis in which she did not age, needing neither sustenance nor rest.
+
+The time she now had drove her to the brink of insanity on more than one occasion, until she learned from the elves how to manage having so much to spare.
+They taught her to walk the world, to take pleasure in all the life she could take in.
+The travel would ease her mind, help her forget for a moment the burden of a life lived too long.
+
+It was during her travels that she came across a creature of powerful magic.
+This creature, what would now be called a Lich, could tell immediately that something was amiss.
+He demanded that she submit to him, and retrieve a hoard of gems hiddin in a volcano, an act only someone like her could perform.
+When she refused, he cursed her to eternal slumber, only waking up when he had a command to give.
+The curse also bound her to the volcano, the location most prominent in his mind.
+Unable to protect herself from the magic as it was performed, and powerless to undo it once it took hold, she was forced to fetch the gems and await further commands.
+When her tasks were done, she took to making a home out of the volcano she was first tasked with entering.
+
+This went on for many years, which passed with many similar impossible tasks.
+One such task saw her sink into the ocean to wrest a sword from the merfolk who lived there, again for the Lich's benefit.
+She was used as the Lich's enforcement, and his supplier.
+
+The Lich thought himself clever, having found a servant who was only around when he needed her.
+However, the way he communicated his desires had to be communicated through a ritual.
+This ritual, and the time it took her to find him when she was summoned, meant that he had to plan farther in advance than he was wont to do.
+
+One day, after centuries of subjugation had passed, a group of adventurers known only as The Party stormed his tower, the Immortal in tow.
+It turned out that the summoning ritual was not one only he could perform, and their ranger had been watching him for quite some time.
+They had commanded her to aid them in killing him, ensuring that she could not be used against them.
+
+The battle was long-fought, for even without his invulnerable servant, the Lich was incredibly powerful.
+The Party prevailed, however, and the Lich was slain.
+But the Immortal still felt the draw to the volcano, still felt the weight of the curse upon her.
+She bid The Party farewell, and left.
+She walked back to the volcano this time, feeling no need to hurry with the Lich dead.
+If she could, she would undo what he had done to the world.
+But the curse forbade her from taking any action other than traveling to and from the volcano without a command.
+
+The ritual for her summoning became a closely guarded secret among The Party, only being passed on when the new member had gained enough trust.
+They wanted to ensure that the Immortal was not used in the same way that the Lich had been using her.
+As with all secrets, however, this one proved impossible to keep forever.
+
+A greiving widow once performed the ritual by accident, and was surprised when the Immortal showed up on her doorstep.
+She asked the Immortal to retrieve her four sons, so she could have some comfort.
+The Immortal was glad to be used for good after all the evil she had been forced to perform.
+
+The first son was mayor of a town in the kingdom of Mivol, a shrewd politician who could make sure what he wanted got done.
+He did not want to leave, enjoying his power too much.
+The Immortal, bound by the curse, took him by the shoulder and dragged him back to his mother.
+
+The second son was a head priest of a temple dedicated to the worship of Pelor, a charismatic man who could convince anyone to see his side of things.
+He showed remorse for not being there, but declared that his temple needed him more than his mother did.
+Besides, she had his brother.
+The Immortal tossed him over her shoulder and carried him back, the curse ensuring that his arguments fell on deaf ears.
+
+The third son was a general in the armies of Mivol, responsible for the lives of an army of soldiers and innumerable townsfolk.
+He could not leave his post, lest the army fall into chaos and the people suffer.
+When the Immortal was not wavering, he retreated and ordered his men to apprehend her, but their weapons could not pierce her skin as she advanced, cornering him.
+Seeing this display, he reluctantly agreed to go with her, tasking a subordinate with his role.
+
+The final son was a simple man, living a life in provincial Mivol with his wife and children.
+He agreed that he should go back to help his mother, asking only that his family be brough along as well.
+The Immortal agreed, allowing him to pack up his things and head out the next day.
+She opted to walk the whole way, having used her extensive magical abilities to quicken the return trip every other time.
+The journey back was much more enjoyable than the last three, and the man and his wife made for pleasant company.
+
+When they arrived at the widow's house, it was nearly in ruins from the fighting happening within.
+The final son merely smirked, rolled his eyes, and made a comment about family before opening the door and announcing his presence.
+
+With her task complete, the Immortal headed back to the volcano, now known as Big Rock Mountain.
+And to this day she sleeps, bound by the curse to wait for the next summoning.
